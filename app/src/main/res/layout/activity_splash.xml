@@ -21,11 +21,5 @@
             android:layout_height="wrap_content"
             android:src="@drawable/title_splash" />
 
-        <View
-            android:layout_width="100dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="16dp"
-            android:background="#33000000" />
-
     </LinearLayout>
 </RelativeLayout>
