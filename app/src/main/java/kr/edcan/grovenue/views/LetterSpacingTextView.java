@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 public class LetterSpacingTextView extends TextView {
-    private float letterSpacing = LetterSpacing.BIGGEST;
+    private float letterSpacing = LetterSpacing.GROVENUE_DIMEN;
     private CharSequence originalText = "";
 
 
@@ -56,7 +56,7 @@ public class LetterSpacingTextView extends TextView {
         StringBuilder builder = new StringBuilder();
         for(int i = 0; i < originalText.length(); i++) {
             String c = ""+ originalText.charAt(i);
-            builder.append(c.toLowerCase());
+            builder.append(c);
             if(i+1 < originalText.length()) {
                 builder.append("\u00A0");
             }
@@ -75,5 +75,6 @@ public class LetterSpacingTextView extends TextView {
         public final static float NORMALBIG = (float)0.025;
         public final static float BIG = (float)0.05;
         public final static float BIGGEST = (float)0.2;
+        public final static float GROVENUE_DIMEN = (float)6.0;
     }
 }

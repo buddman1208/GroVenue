@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CartaTagView">
+        <attr name="themeColor" format="reference|color" />
+        <attr name="fullMode" format="reference|boolean" />
+    </declare-styleable>
+    <declare-styleable name="CartaDoubleTextView">
+        <attr name="mainText" format="reference|string" />
+        <attr name="subText" format="reference|string" />
+        <attr name="mainColor" format="reference|color" />
+        <attr name="subColor" format="reference|color" />
+        <attr name="mainTextSize" format="reference|dimension" />
+        <attr name="subTextSize" format="reference|dimension" />
+        <attr name="textMargin" format="reference|dimension" />
+        <attr name="mainSingleLine" format="reference|boolean" />
+        <attr name="subSingleLine" format="reference|boolean" />
+        <attr name="mainBold" format="reference|boolean" />
+        <attr name="subBold" format="reference|boolean" />
+    </declare-styleable>
+</resources>
