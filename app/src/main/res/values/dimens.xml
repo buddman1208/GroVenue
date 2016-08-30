@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="stroke_width">5dp</dimen>
+    <dimen name="tag_textSize">18dp</dimen>
+    <dimen name="toolbarTitleTextSize">20dp</dimen>
 </resources>
