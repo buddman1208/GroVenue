@@ -1,4 +1,5 @@
 <layout>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -45,21 +46,30 @@
                 android:padding="16dp">
 
                 <EditText
+                    android:id="@+id/authIDInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="아이디...."
+                    android:inputType="textNoSuggestions"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
 
                 <EditText
+                    android:id="@+id/authPWInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="비밀번호...."
+                    android:inputType="textPassword|textNoSuggestions"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/authLoginExecute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -72,6 +82,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/authRegisterExecute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

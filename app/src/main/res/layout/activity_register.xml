@@ -1,4 +1,5 @@
 <layout>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -24,44 +25,68 @@
                 android:padding="16dp">
 
                 <EditText
+                    android:id="@+id/authRegisterID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="사용할 아이디 입력"
+                    android:inputType="textNoSuggestions"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
 
                 <EditText
+                    android:id="@+id/authRegisterPW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="비밀번호 입력"
+                    android:inputType="textNoSuggestions|textPassword"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
+
                 <EditText
+                    android:id="@+id/authRegisterRePW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="비밀번호 재입력"
+                    android:inputType="textNoSuggestions|textPassword"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
+
                 <EditText
+                    android:id="@+id/authRegisterName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="이름 입력"
+                    android:inputType="textNoSuggestions"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
+
                 <EditText
+                    android:id="@+id/authRegisterAge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="나이 입력"
+                    android:inputType="textNoSuggestions|number"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
                     android:textColorHint="#55FFFFFF"
                     android:textSize="15dp" />
 
                 <Spinner
-                    android:id="@+id/registerSpinner"
+                    android:id="@+id/authRegistrSpinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/authRegisterExecute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -74,6 +99,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/authRegisterCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
