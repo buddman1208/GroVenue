@@ -12,6 +12,9 @@ public class Spot {
     private ArrayList<Star> stars;
     private Location location;
 
+    public Spot() {
+    }
+
     public Spot(String name, String oldAddress, String roadAddress, String businessDetail, ArrayList<String> phone, int businessType, ArrayList<Star> stars, Location location) {
         this.name = name;
         this.oldAddress = oldAddress;

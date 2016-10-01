@@ -1,0 +1,346 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="kr.edcan.grovenue.activity.FilterActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="여행 목적"
+                    android:textColor="@color/notSelectedColor"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="가족 여행"
+                            app:themeColor="#f48fb1" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="관광"
+                            app:themeColor="#4dd0e1" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="도심"
+                            app:themeColor="#5c6bc0" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="낭만"
+                            app:themeColor="#e57373" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="럭셔리"
+
+                            app:themeColor="#ce93d8" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel6"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+
+                            android:text="레저"
+                            app:themeColor="#00695c"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel7"
+                            android:layout_width="110dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="비즈니스"
+
+                            app:themeColor="#78909c" />
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterTravel8"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="식도락"
+                            app:themeColor="#a1887f" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="내 예산의 상태"
+                    android:textColor="@color/notSelectedColor"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterMoney1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="예산 적음"
+                            app:themeColor="#5c6bc0" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterMoney2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="예산 적당함"
+
+                            app:themeColor="#f9a651" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterMoney3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="예산 많음"
+                            app:themeColor="#e57373" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="내 위치 기준"
+                    android:textColor="@color/notSelectedColor"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterLocation1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="100m 이내"
+                            app:themeColor="#ba68c8" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterLocation2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:text="500m 이내"
+                            app:themeColor="#00acc1"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterLocation3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:text="1km 이내"
+                            app:themeColor="#9ccc65"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterLocation4"
+                            android:layout_width="110dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="10km 이내"
+                            app:themeColor="#7986cb" />
+
+                        <kr.edcan.grovenue.views.CartaTagView
+                            android:id="@+id/filterLocation5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="50km 이내"
+                            app:themeColor="#ffab40" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

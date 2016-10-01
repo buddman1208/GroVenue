@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">GroVenue</string>
     <string name="auth_register"><u>회원가입</u></string>
-    <string name="cancel" ><u>취소</u></string>
+    <string name="cancel"><u>취소</u></string>
 </resources>

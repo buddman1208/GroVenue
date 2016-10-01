@@ -12,6 +12,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by Junseok on 2016-09-30.
@@ -45,7 +46,8 @@ public interface NetworkInterface {
 
     @GET("/spots")
     Call<ArrayList<Spot>> getSpotList(
-            @Header("Login-Token") String token
+            @Header("Login-Token") String token,
+            @Query("limit") int limit
     );
 
     @GET("/spots/{id}")

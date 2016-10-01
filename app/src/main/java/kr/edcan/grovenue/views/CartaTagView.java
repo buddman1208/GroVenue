@@ -50,9 +50,10 @@ public class CartaTagView extends TextView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 //        height = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
 //        width = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
+
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         height = getMeasuredHeight();
         width = getMeasuredWidth();
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     public void setView() {
@@ -69,8 +70,11 @@ public class CartaTagView extends TextView {
         bgPaint = new Paint();
         bgPaint.setColor(color);
         bgPaint.setStyle(Paint.Style.STROKE);
+        bgPaint.setAntiAlias(true);
+        bgPaint.setStrokeWidth(4);
         innerPaint = new Paint();
         innerPaint.setColor(color);
+        innerPaint.setAntiAlias(true);
         innerPaint.setStyle(Paint.Style.FILL);
         Point center = new Point(width / 2, height / 2);
         int strokeWidth = getResources().getDimensionPixelSize(R.dimen.stroke_width);
@@ -82,11 +86,11 @@ public class CartaTagView extends TextView {
         int right = center.x + (innerW / 2);
         int bottom = center.y + (innerH / 2);
 
-        RectF bgRect = new RectF(0.0f, 0.0f, width - strokeWidth, height - strokeWidth);
+        RectF bgRect = new RectF(0.0f+10, 0.0f+10, width - 10, height - 10);
         RectF innerRect = new RectF(left, top, right, bottom);
-        canvas.drawRoundRect(bgRect, height / 2, height / 2, bgPaint);
         if (fullMode)
             canvas.drawRoundRect(innerRect, innerH / 2, innerH / 2, innerPaint);
+        else canvas.drawRoundRect(bgRect, height / 2, height / 2, bgPaint);
         super.onDraw(canvas);
     }
 
@@ -100,8 +104,12 @@ public class CartaTagView extends TextView {
     public void setFullMode(boolean fullMode) {
         this.fullMode = fullMode;
         requestLayout();
+        setView();
     }
 
+    public boolean getFullMode(){
+        return this.fullMode;
+    }
     public void setShapeStyle(boolean fullMode, String colorStr) {
         this.color = Color.parseColor(colorStr);
         requestLayout();
