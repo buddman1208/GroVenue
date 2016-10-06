@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CartaTagView">
-        <attr name="themeColor" format="reference|color" />
-        <attr name="fullMode" format="reference|boolean" />
+    <declare-styleable name="RoundTextView">
+        <attr name="color" format="color" />
+        <attr name="isfillEnabled" format="boolean" />
     </declare-styleable>
     <declare-styleable name="CartaDoubleTextView">
         <attr name="mainText" format="reference|string" />

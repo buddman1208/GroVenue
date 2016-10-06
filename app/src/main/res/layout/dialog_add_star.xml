@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <include layout="@layout/include_btn_star"
+                android:id="@+id/btn_star0"
+                app:isScoreOn="@{true}"/>
+            <include layout="@layout/include_btn_star"
+                android:id="@+id/btn_star1"
+                app:isScoreOn="@{true}"/>
+            <include layout="@layout/include_btn_star"
+                android:id="@+id/btn_star2"
+                app:isScoreOn="@{true}"/>
+            <include layout="@layout/include_btn_star"
+                android:id="@+id/btn_star3"
+                app:isScoreOn="@{false}"/>
+            <include layout="@layout/include_btn_star"
+                android:id="@+id/btn_star4"
+                app:isScoreOn="@{false}"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:hint="제목"
+                android:id="@+id/edit_review_title" />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="내용"
+                android:gravity="top"
+                android:minHeight="100dp"
+                android:id="@+id/edit_review_content" />
+
+            <Button
+                android:id="@+id/btn_review_done"
+                android:layout_marginTop="10dp"
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:background="@drawable/round_square_primary_stroke"
+                android:text="확인"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

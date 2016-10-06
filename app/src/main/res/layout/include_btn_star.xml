@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="isScoreOn"
+            type="boolean"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/review_star_margin_size"
+        android:paddingRight="@dimen/review_star_margin_size">
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="@dimen/review_star_size"
+            android:layout_height="@dimen/review_star_size"
+            android:src="@{isScoreOn?@drawable/ic_review_star_big:@drawable/ic_review_star_big_none, default=@drawable/ic_review_star_big}" />
+    </FrameLayout>
+</layout>

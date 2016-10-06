@@ -1,0 +1,13 @@
+<resources>
+    <string name="default_item_main_title">준석이네 원조 해장국 24시</string>
+    <string name="default_item_main_subtitle">500m 거리 안에 있음, 033-1234-5678</string>
+    <string name="default_item_main_tag1">한식</string>
+    <string name="default_item_main_tag2">일반음식점</string>
+
+
+    <string name="default_map_title">종현 두바이 7성급 펜션</string>
+    <string name="default_map_tag1">민박/펜션</string>
+    <string name="default_map_tag2">펜션</string>
+    <string name="default_map_distance">500m</string>
+    <string name="default_map_address">강원도 춘천시 예찬 12길 345</string>
+</resources>

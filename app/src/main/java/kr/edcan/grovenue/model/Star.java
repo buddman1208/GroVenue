@@ -5,24 +5,30 @@ package kr.edcan.grovenue.model;
  */
 public class Star {
     private int score;
-    private String content, owner, spot;
+    private String title, content, spot;
+    private User owner;
 
-    public Star(int score, String content, String owner, String spot) {
+    public Star(int score, String title, String content, User owner, String spot) {
         this.score = score;
         this.content = content;
         this.owner = owner;
         this.spot = spot;
     }
 
+
     public int getScore() {
         return score;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getContent() {
         return content;
     }
 
-    public String getOwner() {
+    public User getOwner() {
         return owner;
     }
 
