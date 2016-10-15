@@ -2,8 +2,6 @@ package kr.edcan.grovenue.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.net.Network;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,11 +17,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Auth extends AppCompatActivity {
+public class Auth extends BaseActivity {
 
     ActivityAuthBinding binding;
     Call<User> userLogin;
-    DataManager manager;
     NetworkInterface service;
 
     @Override
@@ -34,7 +31,7 @@ public class Auth extends AppCompatActivity {
     }
 
     private void setDefault() {
-        manager = new DataManager(getApplicationContext());
+        final DataManager manager = DataManager.INSTANCE;
         service = NetworkHelper.getNetworkInstance();
         binding.authLoginExecute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,11 +45,15 @@ public class Auth extends AppCompatActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             switch (response.code()) {
                                 case 200:
-                                    manager.saveNativeLoginUserInfo(response.body());
+                                    manager.setUser(response.body());
+                                    manager.saveUser();
+
                                     Toast.makeText(Auth.this, response.body().getName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), Main.class));
+
                                     finish();
                                     break;
+
                                 case 401:
                                     Toast.makeText(Auth.this, "아이디 혹은 비밀번호가 잘못되었습니다", Toast.LENGTH_SHORT).show();
                                     break;

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="item"
+            type="kr.edcan.grovenue.model.Spot" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="40dp"
+        android:paddingBottom="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include layout="@layout/item_star_graph"
+                    app:score='@{"5"}'
+                    app:weight='@{item.getStarWeight(5)}'/>
+                <include layout="@layout/item_star_graph"
+                    app:score='@{"4"}'
+                    app:weight='@{item.getStarWeight(4)}'/>
+                <include layout="@layout/item_star_graph"
+                    app:score='@{"3"}'
+                    app:weight='@{item.getStarWeight(3)}'/>
+                <include layout="@layout/item_star_graph"
+                    app:score='@{"2"}'
+                    app:weight='@{item.getStarWeight(2)}'/>
+                <include layout="@layout/item_star_graph"
+                    app:score='@{"1"}'
+                    app:weight='@{item.getStarWeight(1)}'/>
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#aaa"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(item.rating)}"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorStar"
+                    android:textSize="37sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 별점"
+                    android:textStyle="bold"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <include layout="@layout/item_star"
+            app:star="@{item.stars[0]}" />
+        <include layout="@layout/item_star"
+            app:star="@{item.stars[1]}"/>
+        <Button
+            android:id="@+id/btn_write_review"
+            android:layout_marginTop="20dp"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_square_primary_stroke"
+            android:text="리뷰 작성하기"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+
+</layout>

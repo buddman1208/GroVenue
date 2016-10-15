@@ -1,0 +1,35 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:id="@+id/mainRecyclerHeader"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="강원도 속\n이곳은 어때요?"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="좋아하는 것들에 맞춰 강원도에서 만날 수 있는\n여러 곳을 골라보았습니다."
+            android:textColor="@color/notSelectedColor"
+            android:textSize="11dp" />
+
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:background="#2000"/>
+    </LinearLayout>
+
+</layout>

@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import kr.edcan.grovenue.R;
 
-public class FindView extends AppCompatActivity {
+public class FindView extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,10 +1,14 @@
 package kr.edcan.grovenue.utils;
 
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 
 import kr.edcan.grovenue.model.Spot;
+import kr.edcan.grovenue.model.SpotResult;
 import kr.edcan.grovenue.model.Star;
 import kr.edcan.grovenue.model.User;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -45,9 +49,17 @@ public interface NetworkInterface {
 
 
     @GET("/spots")
-    Call<ArrayList<Spot>> getSpotList(
+    Call<SpotResult> getSpotList(
             @Header("Login-Token") String token,
-            @Query("limit") int limit
+            @Query("skip") int skip,
+            @Query("limit") int limit,
+            @Query("longitude") Float longitude,
+            @Query("latitude") Float latitude,
+            @Query("query") String query,
+            @Query("purpose") Integer purpose,
+            @Query("budget") Integer budget,
+            @Query("maxDistance") Integer maxDistance,
+            @Query("minScore") int minScore
     );
 
     @GET("/spots/{id}")
@@ -57,9 +69,20 @@ public interface NetworkInterface {
     );
 
     @GET("/spots/{id}/stars")
-    Call<ArrayList<Star>> getSpotStarInfo(
+    Call<ArrayList<Star>> getSpotStarList(
             @Header("Login-Token") String token,
             @Path("id") String id
+    );
+
+
+    @POST("/spots/{id}/stars")
+    @FormUrlEncoded
+    Call<ResponseBody> postSpotStar(
+            @Header("Login-Token") String token,
+            @Path("id") String spotId,
+            @Field("score") int score,
+            @Field("title") String title,
+            @Field("content") String content
     );
 
 }

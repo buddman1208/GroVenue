@@ -1,0 +1,104 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="kr.edcan.grovenue.model.Spot"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/mainRecyclerCardView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="#FFF"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardElevation="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mainRecyclerImage"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#3c3c3c"
+                android:src="@drawable/rsz_mockup_haejangguk"
+                app:bind_image="@{item.backgroundDrawable}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_item_mask" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mainRecyclerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.name, default=@string/default_item_main_title}"
+                    android:textStyle="bold"
+                    android:textColor="#FFF"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/mainRecyclerSubTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.subtitle, default=@string/default_item_main_title}"
+                    android:textColor="#aaa"
+                    android:textSize="12dp" />
+
+                <View
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFF" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <kr.edcan.grovenue.view.RoundTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="4dp"
+                        android:gravity="center"
+                        android:textColor="#fff"
+                        app:isfillEnabled="true"
+                        app:color="@color/tagColorLightredtic"
+                        android:text="@{item.businessStr, default=@string/default_item_main_tag1}"
+                        android:textSize="11dp" />
+
+                    <kr.edcan.grovenue.view.RoundTextView
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="4dp"
+                        android:gravity="center"
+                        app:color="@color/tagColorBluegreytic"
+                        app:isfillEnabled="true"
+                        android:textColor="#fff"
+                        android:text="@{item.businessDetail, default=@string/default_item_main_tag2}"
+                        android:textSize="11dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>

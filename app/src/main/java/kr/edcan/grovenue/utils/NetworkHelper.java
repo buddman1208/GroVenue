@@ -3,6 +3,8 @@ package kr.edcan.grovenue.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 
+import com.google.gson.GsonBuilder;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -12,8 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkHelper {
     private Context context;
-    final public static String url = "http://gangwon.applepi.kr";
-    final public static int port = 80;
+    private final static String url = "http://gangwon.applepi.kr";
+    private final static int port = 80;
 
     public NetworkHelper(Context context) {
         this.context = context;
@@ -25,7 +27,7 @@ public class NetworkHelper {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(url + ":" + port)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setExclusionStrategies(new AnnotationBasedExclusionStrategy()).create()))
                     .build();
         }
         return retrofit.create(NetworkInterface.class);

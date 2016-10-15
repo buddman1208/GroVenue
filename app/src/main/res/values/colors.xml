@@ -3,5 +3,28 @@
     <color name="colorPrimary">#2B3194</color>
     <color name="colorPrimaryDark">#2B3194</color>
     <color name="colorAccent">#2B3194</color>
+    <color name="colorControlHighlight">#7fff</color>
     <color name="notSelectedColor">#66000000</color>
+
+    <color name="colorStar">#FFC400</color>
+
+    <color name="tagColorRedtic">#e57373</color>
+    <color name="tagColorLightredtic">#E37272</color>
+    <color name="tagColorBluegreytic">#78909c</color>
+    <color name="tagColorPinktic">#f48fb1</color>
+    <color name="tagColorCyantic">#4dd0e1</color>
+    <color name="tagColorIndigotic">#5c6bc0</color>
+    <color name="tagColorLightpurpletic">#ce93d8</color>
+    <color name="tagColorDarkgreentic">#00695c</color>
+    <color name="tagColorBrowntic">#a1887f</color>
+    <color name="tagColorOrangetic">#f9a651</color>
+    <color name="tagColorPurpletic">#ba68c8</color>
+    <color name="tagColorDarkcyantic">#00acc1</color>
+    <color name="tagColorLightgreentic">#9ccc65</color>
+    <color name="tagColorLightindigotic">#7986cb</color>
+    <color name="tagColorLightorangetic">#ffab40</color>
+
+
+
+
 </resources>

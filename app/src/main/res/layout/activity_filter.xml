@@ -1,346 +1,507 @@
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="kr.edcan.grovenue.activity.FilterActivity">
+        android:background="@android:color/white"
+        tools:context=".activity.Main">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
-        <android.support.v4.widget.NestedScrollView
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/white"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_toolbar_title"
+                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/toolbarTitleTextSize" />
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="여행 목적"
-                    android:textColor="@color/notSelectedColor"
-                    android:textSize="16dp" />
+                android:fillViewport="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel1"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="가족 여행"
-                            app:themeColor="#f48fb1" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel2"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="관광"
-                            app:themeColor="#4dd0e1" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel3"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="도심"
-                            app:themeColor="#5c6bc0" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel4"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:text="낭만"
-                            app:themeColor="#e57373" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel5"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="럭셔리"
-
-                            app:themeColor="#ce93d8" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel6"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-
-                            android:text="레저"
-                            app:themeColor="#00695c"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="여행 목적"
+                        android:textColor="@color/notSelectedColor"
+                        android:textSize="14sp" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel7"
-                            android:layout_width="110dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="비즈니스"
-
-                            app:themeColor="#78909c" />
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterTravel8"
-                            android:layout_width="110dp"
+                        <RelativeLayout
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="식도락"
-                            app:themeColor="#a1887f" />
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose0"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="가족 여행"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorPinktic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="관광"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorCyantic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="도심"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorIndigotic" />
+                        </RelativeLayout>
                     </LinearLayout>
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="내 예산의 상태"
-                    android:textColor="@color/notSelectedColor"
-                    android:textSize="16dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterMoney1"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:text="예산 적음"
-                            app:themeColor="#5c6bc0" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterMoney2"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="예산 적당함"
-
-                            app:themeColor="#f9a651" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterMoney3"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="예산 많음"
-                            app:themeColor="#e57373" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="내 위치 기준"
-                    android:textColor="@color/notSelectedColor"
-                    android:textSize="16dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterLocation1"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="100m 이내"
-                            app:themeColor="#ba68c8" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterLocation2"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:text="500m 이내"
-                            app:themeColor="#00acc1"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterLocation3"
-                            android:layout_width="110dp"
-                            android:layout_height="match_parent"
-                            android:text="1km 이내"
-                            app:themeColor="#9ccc65"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_centerInParent="true"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterLocation4"
-                            android:layout_width="110dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="10km 이내"
-                            app:themeColor="#7986cb" />
-
-                        <kr.edcan.grovenue.views.CartaTagView
-                            android:id="@+id/filterLocation5"
-                            android:layout_width="110dp"
+                        <RelativeLayout
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:text="50km 이내"
-                            app:themeColor="#ffab40" />
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="낭만"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorRedtic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="럭셔리"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightpurpletic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="레저"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorDarkgreentic" />
+                        </RelativeLayout>
                     </LinearLayout>
-                </RelativeLayout>
-            </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose6"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="비즈니스"
+                                android:textSize="@dimen/filterTag_textSize"
+
+                                app:color="@color/tagColorBluegreytic" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterPurpose7"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="식도락"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorBrowntic" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:text="내 예산의 상태"
+                        android:textColor="@color/notSelectedColor"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterBudget0"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="예산 적음"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorIndigotic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterBudget1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="예산 적당함"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorOrangetic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterBudget2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="예산 많음"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorRedtic" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:text="내 위치 기준"
+                        android:textColor="@color/notSelectedColor"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMaxDistance0"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="100m 이내"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorPurpletic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMaxDistance1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="500m 이내"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorDarkcyantic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMaxDistance2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="1km 이내"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightgreentic" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMaxDistance3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="10km 이내"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightindigotic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMaxDistance4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="50km 이내"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightorangetic" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:text="별점"
+                        android:textColor="@color/notSelectedColor"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMinScore1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="1점 이상"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorPurpletic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMaxScore2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="2점 이상"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorDarkcyantic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMinScore3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="3점 이상"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightgreentic" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMinScore4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="4점 이상"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightindigotic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" android:padding="3dp">
+
+                            <kr.edcan.grovenue.view.RoundTextView
+                                android:id="@+id/filterMinScore5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="5점 이상"
+                                android:textSize="@dimen/filterTag_textSize"
+                                app:color="@color/tagColorLightorangetic" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@drawable/shape_appbar_shadow" />
+
+        </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

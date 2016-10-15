@@ -2,7 +2,15 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="stroke_width">2dp</dimen>
-    <dimen name="tag_textSize">18dp</dimen>
+    <dimen name="roundTextview_roundRadius">100dp</dimen>
+    <dimen name="roundTextview_strokeWidth">1dp</dimen>
+    <dimen name="tagTextSize">18sp</dimen>
+    <dimen name="filterTag_textSize">13sp</dimen>
     <dimen name="toolbarTitleTextSize">20dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="map_padding">50dp</dimen>
+
+    <dimen name="review_star_size">25dp</dimen>
+    <dimen name="review_star_margin_size">15dp</dimen>
 </resources>
