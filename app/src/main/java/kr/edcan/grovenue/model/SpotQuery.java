@@ -46,7 +46,7 @@ public class SpotQuery {
             case 4:
                 return 50000;
             default:
-                return 1000000;
+                return -1;
         }
     }
 

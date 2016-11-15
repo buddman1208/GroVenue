@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,7 +86,7 @@ public class Main extends BaseActivity {
                 "".equals(query)?null:query,
                 spotQuery.getPurpose(),
                 (spotQuery.getBudget() == -1)?null:spotQuery.getBudget(),
-                manager.getLocation()!=null?spotQuery.getMaxDistance():null,
+                (manager.getLocation() != null && spotQuery.getMaxDistance() != -1)?spotQuery.getMaxDistance():null,
                 spotQuery.getMinScore()
         );
 
@@ -108,6 +109,8 @@ public class Main extends BaseActivity {
                         }
                         Main.this.call = null;
                         break;
+                    default:
+                        Toast.makeText(Main.this, String.format("%d: 오류가 발생했습니다.", response.code()), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -130,6 +133,7 @@ public class Main extends BaseActivity {
         ActionBar ab = getSupportActionBar();
         assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
+        mainBind.toolbar.setNavigationIcon(R.drawable.btn_nav);
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mainBind.mainRecycler.setLayoutManager(layoutManager);
@@ -240,6 +244,7 @@ public class Main extends BaseActivity {
             loadData();
             DataManager.INSTANCE.setSpotQueryChangedFalse();
         }
+        adapter.notifyDataSetChanged();
     }
 
 

@@ -167,8 +167,8 @@
                 android:id="@+id/mainRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:clipToPadding="false"
                 tools:listitem="@layout/item_main_recycler" />
             <View

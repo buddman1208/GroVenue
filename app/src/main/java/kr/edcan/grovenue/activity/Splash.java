@@ -128,7 +128,7 @@ public class Splash extends BaseActivity {
 
     private boolean checkGPS(){
         LocationManager locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
 
