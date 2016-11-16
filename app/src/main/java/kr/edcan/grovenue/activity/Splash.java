@@ -59,9 +59,11 @@ public class Splash extends BaseActivity {
             NetworkHelper.getNetworkInstance().getUserInfo(manager.getUser().getToken()).enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
-                    Log.d("reponse code", response.code() + " HTTP");
+                    Log.d("reponse code", response.code() + " HTTP asdf");
                     switch (response.code()) {
                         case 200:
+                            Log.e("asdf", response.body().getToken());
+                            Log.e("auth token", manager.getUser().getToken());
                             manager.setUser(response.body());
                             manager.saveUser();
                             Toast.makeText(Splash.this, manager.getUser().getName() + " 님 안녕하세요!", Toast.LENGTH_SHORT).show();

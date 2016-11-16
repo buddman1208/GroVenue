@@ -45,9 +45,9 @@ public class Auth extends BaseActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             switch (response.code()) {
                                 case 200:
+                                    Log.e("asdf", response.body().getToken());
                                     manager.setUser(response.body());
                                     manager.saveUser();
-
                                     Toast.makeText(Auth.this, response.body().getName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), Main.class));
 
