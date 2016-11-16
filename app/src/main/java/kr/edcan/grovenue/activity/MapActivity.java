@@ -159,6 +159,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 @Override
                 public void onClick(View view) {
                     boolean finded = false;
+                    dialogScore = 0;
                     for (IncludeBtnStarBinding starBinding : starBtnList) {
                         if (!finded) {
                             dialogScore++;
