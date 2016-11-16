@@ -1,6 +1,7 @@
 package kr.edcan.grovenue.application;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.tsengvn.typekit.Typekit;
 
@@ -10,7 +11,7 @@ import kr.edcan.grovenue.utils.MyGoogleApi;
 /**
  * Created by 최예찬 on 2016-10-05.
  */
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();

@@ -28,8 +28,4 @@
     </style>
     <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
     <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
-
-    <style name="AppTheme.NoActionBar.HomeAsNav">
-        <item name="android:homeAsUpIndicator">@drawable/btn_nav</item>
-    </style>
 </resources>
