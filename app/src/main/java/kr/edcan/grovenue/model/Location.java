@@ -25,6 +25,8 @@ public class Location {
         return coordinates;
     }
 
+    public int getLength(){return coordinates.size();}
+
     public float getLongitude() {
         return coordinates.get(0);
     }
