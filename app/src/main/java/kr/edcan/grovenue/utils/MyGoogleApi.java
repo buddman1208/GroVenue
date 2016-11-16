@@ -81,6 +81,5 @@ public class MyGoogleApi implements GoogleApiClient.ConnectionCallbacks, GoogleA
     @Override
     public void onLocationChanged(android.location.Location location) {
         DataManager.INSTANCE.setLocation(new Location(location));
-        Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
     }
 }

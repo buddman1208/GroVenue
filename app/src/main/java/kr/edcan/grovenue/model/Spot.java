@@ -164,7 +164,7 @@ public class Spot {
 
     public String getDistanceStr() {
         if (distance == null) {
-            return "거리 측정되지 않음";
+            return ("위치 정보 없음");
         } else if (distance < 1) {
             distance = (distance * 100) / 100 * 100;
             return distance + "m";
@@ -177,7 +177,7 @@ public class Spot {
     public String getSubtitle() {
         StringBuilder sb = new StringBuilder();
         if (distance == null) {
-            sb.append("거리 측정되지 않음");
+            sb.append("위치 정보 없음");
         } else sb.append(String.format("%s 거리 안에 있음", getDistanceStr()));
 
         if (phone.size() > 0) {

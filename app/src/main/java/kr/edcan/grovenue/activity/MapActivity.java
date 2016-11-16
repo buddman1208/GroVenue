@@ -99,15 +99,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         binding.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!spot.getPhone().isEmpty() && !spot.getPhone().get(0).equals("")) {
+                if (!spot.getPhone().isEmpty() && !spot.getPhone().get(0).equals("")) {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + spot.getPhone().get(0)));
                     if (ActivityCompat.checkSelfPermission(MapActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         Toast.makeText(MapActivity.this, "전화 권한 설정에 오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     startActivity(intent);
-                }
-                else Toast.makeText(MapActivity.this, "전화번호 정보가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(MapActivity.this, "전화번호 정보가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -121,7 +121,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         reloadSpot();
     }
 
-    private void reloadSpot(){
+    private void reloadSpot() {
 
         NetworkHelper.getNetworkInstance().getSpotInfo(
                 DataManager.INSTANCE.getUser().getToken(),
@@ -129,7 +129,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         ).enqueue(new Callback<Spot>() {
             @Override
             public void onResponse(Call<Spot> call, Response<Spot> response) {
-                switch (response.code()){
+                switch (response.code()) {
                     case 200:
                         spot = response.body();
                         spot.calcDistance();
@@ -148,8 +148,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
     }
-
-
 
 
     private View getReviewDialog() {
@@ -187,7 +185,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 ).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        switch(response.code()){
+                        switch (response.code()) {
                             case 200:
                                 Toast.makeText(MapActivity.this, "성공적으로 업로드되었습니다.", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
@@ -218,7 +216,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
 
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -231,21 +228,23 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng spotLocation = new LatLng(
+        LatLng spotLocation = null;
+        if (spot.getLocation().getLength() == 2) spotLocation = new LatLng(
                 spot.getLocation().getLatitude(),
                 spot.getLocation().getLongitude()
         );
-        mMap.addMarker(new MarkerOptions()
-                .position(spotLocation)
-                .title(spot.getName())
+
 //                .icon(BitmapDescriptorFactory.fromResource(R.drawable.btn_card_pin_on))
-        );
+        if (spotLocation != null) {
+            mMap.addMarker(new MarkerOptions()
+                    .title(spot.getName())
+                    .position(spotLocation)
+            );
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(spotLocation));
+        }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(spotLocation));
 
-
-
-        if(DataManager.INSTANCE.getLocation() != null) {
+        if (DataManager.INSTANCE.getLocation() != null) {
             LatLng myLocation = new LatLng(
                     DataManager.INSTANCE.getLocation().getLatitude(),
                     DataManager.INSTANCE.getLocation().getLongitude()
@@ -259,7 +258,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(myLocation);
-            builder.include(spotLocation);
+            if (spotLocation != null) builder.include(spotLocation);
             int padding = getResources().getDimensionPixelSize(R.dimen.map_padding); // offset from edges of the map in pixels
             final CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(builder.build(), padding);
 
@@ -270,8 +269,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 }
             });
 
-        }
-        else {
+        } else {
             final CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(spotLocation, 16);
             mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
                 @Override
@@ -280,7 +278,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 }
             });
         }
-
 
 
         mMap.getUiSettings().setScrollGesturesEnabled(false);

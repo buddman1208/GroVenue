@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.widget.Toast;
 
 import kr.edcan.grovenue.R;
@@ -33,8 +34,8 @@ public class Splash extends BaseActivity {
         checkMPermission();
     }
 
-    private void startGPSCheck(){
-        if(checkGPS()) startSplash();
+    private void startGPSCheck() {
+        if (checkGPS()) startSplash();
         else alertCheckGPS();
     }
 
@@ -58,6 +59,7 @@ public class Splash extends BaseActivity {
             NetworkHelper.getNetworkInstance().getUserInfo(manager.getUser().getToken()).enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
+                    Log.d("reponse code", response.code() + " HTTP");
                     switch (response.code()) {
                         case 200:
                             manager.setUser(response.body());
@@ -126,11 +128,10 @@ public class Splash extends BaseActivity {
         }
     }
 
-    private boolean checkGPS(){
-        LocationManager locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+    private boolean checkGPS() {
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
-
 
 
     private void alertCheckGPS() {
@@ -148,7 +149,7 @@ public class Splash extends BaseActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
                                 startSplash();
-                                if(!checkGPS()){
+                                if (!checkGPS()) {
                                     Toast.makeText(Splash.this, "GPS 센서가 켜지지 않았습니다. GPS를 켜주셔야 정상적인 사용이 가능합니다!", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -158,6 +159,7 @@ public class Splash extends BaseActivity {
     }
 
     private static final int REQUEST_GPS = 35;
+
     // GPS 설정화면으로 이동
     private void moveConfigGPS() {
         Intent gpsOptionsIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
@@ -167,9 +169,9 @@ public class Splash extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_GPS){
+        if (requestCode == REQUEST_GPS) {
             startSplash();
-            if(!checkGPS()){
+            if (!checkGPS()) {
                 Toast.makeText(this, "GPS 센서가 켜지지 않았습니다. GPS를 켜주셔야 정상적인 사용이 가능합니다!", Toast.LENGTH_SHORT).show();
             }
         }
